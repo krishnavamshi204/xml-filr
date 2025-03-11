@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #searchBar {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function searchStudents() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let rows = document.querySelectorAll("table tr:not(:first-child)");
+            
+            rows.forEach(row => {
+                let text = row.textContent.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Student List</h2>
+    <input type="text" id="searchBar" onkeyup="searchStudents()" placeholder="Search for students...">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>20</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>22</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Mike Johnson</td>
+            <td>21</td>
+            <td>A-</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>vamshi</td>
+            <td>21</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td></td>
+            <td>21</td>
+            <td>A-</td>
+        </tr>
+    </table>
+</body>
+</html>
